@@ -20,12 +20,12 @@ N3Msg_GetContainerInventoryList pGetContainerInventoryList(nullptr);
 
 int HookMethod(LPCSTR pszModule, LPCSTR pszFunction, PVOID* ppPointer, PVOID pDetour)
 {
-	auto function = DetourFindFunction(pszModule, pszFunction);
+	auto pFunc = DetourFindFunction(pszModule, pszFunction);
 
-	if (function == NULL)
+	if (pFunc == NULL)
 		return ERROR_INVALID_HANDLE;
 
-	*ppPointer = function;
+	*ppPointer = pFunc;
 
 	if (pDetour == NULL)
 		return NULL;
@@ -35,9 +35,9 @@ int HookMethod(LPCSTR pszModule, LPCSTR pszFunction, PVOID* ppPointer, PVOID pDe
 
 void __fastcall OnUseItemOnItem(N3EngineClientAnarchy_t *const pN3Engine, int /*dummy*/, Identity_t* pSource, Identity_t* pDest)
 {
-	int* items = (pN3Engine->*pGetInventoryVec) (&pN3Engine->LocalPlayer->Identity);
+	int* pInvItems = (pN3Engine->*pGetInventoryVec) (&pN3Engine->LocalPlayer->Identity);
 
-	Identity_t* pContainer = (Identity_t*)(*(int*)(*items + (pDest->Instance * 0x4)) + 0x4);
+	Identity_t* pContainer = (Identity_t*)(*(int*)(*pInvItems + (pDest->Instance * 0x4)) + 0x4);
 
 	if (pDest->Type == 0x68 && pContainer->Type == 51017)
 	{
