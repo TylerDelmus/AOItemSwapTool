@@ -259,3 +259,9 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/Detours/lib/syelog.lib
+/Detours/lib/detours.lib
+/Detours/include/syelog.h
+/Detours/include/detver.h
+/Detours
+/Detours
