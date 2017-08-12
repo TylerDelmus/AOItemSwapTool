@@ -8,7 +8,7 @@ I've only confirmed this DLL to work on the legacy client but in thoery it shoul
 
 The release build is using the v141 toolset so you WILL need the 2017 Runtimes which can be found here: https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads
 
-### If you don't know what you're doing then you'll want to download the pre-built version under Releases and then find a injector to inject the DLL into the client before trying the exploits below.
+### If you don't know what you're doing then you'll want to [download the pre-built version](https://github.com/TylerDelmus/AOItemSwapTool/files/1219557/AOItemSwapTool.zip) and then find a injector to inject the DLL into the client before trying the exploits below.
 
 # The following exploits are possible with this DLL:
 
